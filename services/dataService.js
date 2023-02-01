@@ -32,7 +32,37 @@ const register = (uname, email, pswd) => {
         }
     })
 }
+
+//login
+const login =(uname,pswd)=>{
+    console.log('Inside login function body');
+    //check uname,pswd in mongodb
+    return db.User.findOne({
+        //check db.js
+        username:uname,
+        password:pswd
+    }).then(
+        (result)=>{
+            if(result){
+                return {
+                    statusCode:200,
+                    message:'Login successfull...'
+                }
+            }
+            else{
+                return{
+                    statusCode:404,
+                    message:'Invalid Username / Password'
+                }
+            }
+        }
+    )
+}
+
+
+
 //export
 module.exports = {
-    register
+    register,
+    login
 }

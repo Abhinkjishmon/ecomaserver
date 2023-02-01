@@ -32,3 +32,20 @@ server.post('/register',(req,res)=>{
         res.status(result.statusCode).json(result)
     })
 })
+
+
+
+
+
+
+
+
+//login api call resolving
+server.post('/login',(req,res)=>{
+    console.log('Inside login function');
+    console.log(req.body);
+    dataService.login(req.body.uname,req.body.pswd)
+    .then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
+})
