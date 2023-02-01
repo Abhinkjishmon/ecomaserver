@@ -1,5 +1,6 @@
 //import mongoose in db.jd file
 const mongoose = require('mongoose')
+mongoose.set('strictQuery', false);
 
 //Using mongoose define a connection string
 mongoose.connect('mongodb://localhost:27017/meanecom',()=>{
@@ -15,6 +16,6 @@ const User = mongoose.model('User',{
 })
 
 //export model
-module.export={
+module.exports = {
     User
 }

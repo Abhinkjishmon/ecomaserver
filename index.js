@@ -28,5 +28,7 @@ server.post('/register',(req,res)=>{
     console.log('Inside register function');
     console.log(req.body);
     dataService.register(req.body.uname,req.body.email,req.body.pswd)
-    res.send('register request recieved')
+    .then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
 })
