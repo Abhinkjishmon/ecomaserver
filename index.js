@@ -3,6 +3,9 @@ const express = require('express')
 //import cors
 const cors = require('cors')
 
+//import dataservice
+const dataService = require('./services/dataService')
+
 //create server app using express
 const server = express()
 
@@ -24,5 +27,6 @@ server.listen(3000,()=>{
 server.post('/register',(req,res)=>{
     console.log('Inside register function');
     console.log(req.body);
+    dataService.register(req.body.uname,req.body.email,req.body.pswd)
     res.send('register request recieved')
 })
