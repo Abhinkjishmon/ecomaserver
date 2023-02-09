@@ -15,7 +15,21 @@ const User = mongoose.model('User',{
     password:String
 })
 
+const Product = mongoose.model('Product',{
+        id: Number,
+        title: String,
+        price: Number,
+        description: String,
+        category: String,
+        image: String,
+        rating: {
+          rate: Number,
+          count: Number
+        }
+})
+
 //export model
-module.exports = {
-    User
+module.exports = { 
+    User,
+    Product
 }

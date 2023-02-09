@@ -59,10 +59,30 @@ const login =(uname,pswd)=>{
     )
 }
 
+//products
+const allProducts = ()=>{
+  return db.Product.find().then(
+    (result)=>{
+        if(result){
+            return{
+                statusCode: 200,
+                products: result
+            }
+        }
+        else{
+            return{
+                statusCode: 400,
+                message: "No data is present"
+            }
+        }
+    }
+  )
+}
 
 
 //export
 module.exports = {
     register,
-    login
+    login,
+    allProducts
 }

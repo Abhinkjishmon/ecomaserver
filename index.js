@@ -23,6 +23,8 @@ server.listen(3000,()=>{
 })
 //ecom front end request resolving
 
+
+
 //register api call resolving
 server.post('/register',(req,res)=>{
     console.log('Inside register function');
@@ -45,6 +47,19 @@ server.post('/login',(req,res)=>{
     console.log('Inside login function');
     console.log(req.body);
     dataService.login(req.body.uname,req.body.pswd)
+    .then((result)=>{
+        res.status(result.statusCode).json(result)
+    })
+})
+
+
+
+
+
+
+//products api call resolving
+server.get('/products',(req,res)=>{
+    dataService.allProducts()
     .then((result)=>{
         res.status(result.statusCode).json(result)
     })
